@@ -26,7 +26,7 @@ export default async function OgImage({ params }: { params: Promise<{ stream: st
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        background: "linear-gradient(135deg, #0c2011 0%, #24572d 60%, #398a44 100%)",
+        background: "linear-gradient(135deg, #072115 0%, #175a37 55%, #2b8a57 100%)",
         fontFamily: "sans-serif",
         color: "white",
         padding: 60,
@@ -36,7 +36,7 @@ export default async function OgImage({ params }: { params: Promise<{ stream: st
         <span>🧭</span>
         <span style={{ fontWeight: 700, letterSpacing: 1 }}>Career Compass</span>
       </div>
-      <div style={{ display: "flex", fontSize: 30, color: "#b0d9b3", marginTop: 40 }}>
+      <div style={{ display: "flex", fontSize: 30, color: "#b2dcc3", marginTop: 40 }}>
         My recommended SSS stream is…
       </div>
       <div
@@ -57,7 +57,7 @@ export default async function OgImage({ params }: { params: Promise<{ stream: st
         style={{
           display: "flex",
           fontSize: 28,
-          color: "#d7ecd8",
+          color: "#d8eee0",
           marginTop: 36,
           textAlign: "center",
         }}
@@ -69,7 +69,7 @@ export default async function OgImage({ params }: { params: Promise<{ stream: st
           display: "flex",
           marginTop: 48,
           background: "#fbbf24",
-          color: "#0c2011",
+          color: "#072115",
           fontSize: 28,
           fontWeight: 700,
           padding: "18px 44px",

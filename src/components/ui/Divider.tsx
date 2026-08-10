@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface DividerProps {
   className?: string;
@@ -8,12 +8,12 @@ interface DividerProps {
 export function Divider({ className, label }: DividerProps) {
   if (label) {
     return (
-      <div className={cn('flex items-center gap-4', className)}>
-        <div className="bg-border-subtle h-px flex-1" />
-        <span className="text-text-tertiary text-xs font-medium tracking-widest uppercase">{label}</span>
-        <div className="bg-border-subtle h-px flex-1" />
+      <div className={cn("flex items-center gap-4", className)}>
+        <div className="bg-line h-px flex-1" />
+        <span className="text-ink-3 font-mono text-xs font-medium tracking-widest uppercase">{label}</span>
+        <div className="bg-line h-px flex-1" />
       </div>
     );
   }
-  return <div className={cn('bg-border-subtle h-px', className)} />;
+  return <div className={cn("bg-line h-px", className)} />;
 }
