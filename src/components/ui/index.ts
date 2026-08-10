@@ -4,4 +4,6 @@ export { Card } from './Card';
 export { Container } from './Container';
 export { Divider } from './Divider';
 export { IconBox } from './IconBox';
+export { JsonLd } from './JsonLd';
+export { Reveal } from './Reveal';
 export { SectionHeader } from './SectionHeader';

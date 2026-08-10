@@ -1,4 +1,5 @@
 "use client";
+
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { QUIZ_QUESTIONS } from "@/data/quiz";
@@ -19,7 +20,7 @@ export default function QuizPage() {
 
   const question = QUIZ_QUESTIONS[currentIndex];
   const total = QUIZ_QUESTIONS.length;
-  const progress = Math.round((currentIndex / total) * 100);
+  const progress = Math.round(((currentIndex + 1) / total) * 100);
   const isLast = currentIndex === total - 1;
 
   function handleAnswer(value: number) {
@@ -32,27 +33,29 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto max-w-2xl px-4 py-16">
       {/* Progress */}
       <div className="mb-10">
-        <div className="mb-2 flex justify-between text-sm text-gray-500">
-          <span>
+        <div className="mb-2 flex justify-between text-sm">
+          <span className="text-ink-3 font-mono font-medium">
             Question {currentIndex + 1} of {total}
           </span>
-          <button onClick={reset} className="text-brand-600 hover:underline">
+          <button onClick={reset} className="text-brand-600 hover:text-brand-700 dark:text-brand-400 hover:underline">
             Start over
           </button>
         </div>
-        <div className="bg-brand-100 h-2 overflow-hidden rounded-full">
+        <div className="bg-line h-2 overflow-hidden rounded-full">
           <div
-            className="bg-brand-500 h-full rounded-full transition-all duration-300"
+            className="bg-brand-500 dark:bg-brand-400 h-full rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
       </div>
 
-      <h1 className="text-2xl leading-snug font-bold text-gray-900 sm:text-3xl">{question.text}</h1>
-      <p className="mt-2 text-gray-500">Be honest — there are no wrong answers.</p>
+      <h1 className="text-ink text-2xl leading-snug font-bold sm:text-3xl" key={question.id}>
+        {question.text}
+      </h1>
+      <p className="text-ink-3 mt-2">Be honest — there are no wrong answers.</p>
 
       <div className="mt-8 grid gap-3">
         {SCALE.map((option) => (
@@ -60,14 +63,14 @@ export default function QuizPage() {
             key={option.value}
             onClick={() => handleAnswer(option.value)}
             className={cn(
-              "flex items-center justify-between rounded-xl border-2 px-6 py-4 text-left font-medium transition",
+              "group flex items-center justify-between rounded-xl border-2 px-6 py-4 text-left font-medium transition-all duration-200",
               answers[question.id] === option.value
-                ? "border-brand-500 bg-brand-50 text-brand-800"
-                : "hover:border-brand-300 hover:bg-brand-50/50 border-gray-200 bg-white text-gray-700"
+                ? "border-brand-500 bg-brand-50 text-brand-800 dark:border-brand-400 dark:bg-brand-950/60 dark:text-brand-200 shadow-[var(--shadow-soft-brand)]"
+                : "border-line bg-surface text-ink-2 hover:border-brand-300 hover:bg-brand-50/50 dark:hover:border-brand-700 dark:hover:bg-brand-950/40 hover:-translate-y-0.5"
             )}
           >
             {option.label}
-            <ArrowRight className="text-brand-400 h-4 w-4" />
+            <ArrowRight className="text-brand-400 h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </button>
         ))}
       </div>
@@ -75,7 +78,7 @@ export default function QuizPage() {
       {currentIndex > 0 && (
         <button
           onClick={back}
-          className="hover:text-brand-600 mt-8 inline-flex items-center gap-2 text-sm font-medium text-gray-500"
+          className="text-ink-3 hover:text-brand-600 dark:hover:text-brand-400 mt-8 inline-flex items-center gap-2 text-sm font-medium"
         >
           <ArrowLeft className="h-4 w-4" /> Previous question
         </button>

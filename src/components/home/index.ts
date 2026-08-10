@@ -4,4 +4,6 @@ export { ReversePathSection } from './ReversePathSection';
 export { WhoIsThisForSection } from './WhoIsThisForSection';
 export { StatsSection } from './StatsSection';
 export { PivotSection } from './PivotSection';
+export { ResourcesSection } from './ResourcesSection';
+export { FAQSection } from './FAQSection';
 export { CTASection } from './CTASection';
