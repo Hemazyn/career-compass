@@ -3,6 +3,7 @@ export { Button } from './Button';
 export { Card } from './Card';
 export { Container } from './Container';
 export { Divider } from './Divider';
+export { DocPage, DocSection } from './DocPage';
 export { IconBox } from './IconBox';
 export { JsonLd } from './JsonLd';
 export { Reveal } from './Reveal';

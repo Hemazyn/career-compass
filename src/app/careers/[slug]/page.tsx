@@ -9,13 +9,16 @@ import {
   Compass,
   GraduationCap,
   LifeBuoy,
+  Route,
   School,
 } from "lucide-react";
 import { CAREERS, getCareer } from "@/data/careers";
 import { getCourse } from "@/data/courses";
+import { SaveCareerButton } from "@/components/careers/SaveCareerButton";
+import { DifficultyMeter } from "@/components/careers/DifficultyMeter";
 import { subjectName } from "@/data/subjects";
 import { STREAM_INFO } from "@/data/quiz";
-import { formatNaira } from "@/lib/utils";
+import { formatUsd } from "@/lib/utils";
 import { JsonLd } from "@/components/ui";
 import { SITE_URL } from "@/lib/site";
 
@@ -32,9 +35,9 @@ export async function generateMetadata({
   const career = getCareer(slug);
   if (!career) return { title: "Career not found" };
 
-  const description = `${career.title}: Nigerian salary range (${formatNaira(
-    career.salaryNgn.entry
-  )}–${formatNaira(career.salaryNgn.experienced)}/mo), UTME subject combination, O'Level requirements and the SSS stream you need — traced backwards from the JAMB e-Brochure.`;
+  const description = `${career.title}: global salary range (${formatUsd(
+    career.salaryUsd.entry
+  )}–${formatUsd(career.salaryUsd.experienced)}/yr), UTME subject combination, O'Level requirements and the SSS stream you need — traced backwards from the JAMB e-Brochure.`;
 
   return {
     title: career.title,
@@ -84,8 +87,14 @@ export default async function CareerDetailPage({
         <span className="bg-surface-2 text-ink-2 rounded-full px-3 py-1 text-xs font-semibold capitalize">
           {STREAM_INFO[career.stream].label} stream
         </span>
+        <span className="bg-accent-400/15 text-accent-700 dark:text-accent-300 rounded-full px-3 py-1 text-xs font-semibold">
+          #{career.rank}
+        </span>
       </div>
-      <h1 className="text-ink mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">{career.title}</h1>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-ink text-4xl font-extrabold tracking-tight sm:text-5xl">{career.title}</h1>
+        <SaveCareerButton slug={career.slug} title={career.title} />
+      </div>
       <p className="text-ink-2 mt-3 max-w-2xl text-lg">{career.description}</p>
 
       <section className="border-line bg-surface shadow-[var(--shadow-card)] mt-10 rounded-3xl border p-6 sm:p-8">
@@ -119,6 +128,7 @@ export default async function CareerDetailPage({
                   Cutoff reality: JAMB minimum ~{course.cutoffRange.min}, but competitive admission needs{" "}
                   <strong className="text-ink">{course.cutoffRange.competitive}+</strong>
                 </p>
+                <DifficultyMeter course={course} className="mt-3" />
               </div>
             ))}
           </PathStep>
@@ -160,16 +170,16 @@ export default async function CareerDetailPage({
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <section className="border-line bg-surface rounded-2xl border p-6 shadow-[var(--shadow-card)]">
           <h3 className="text-ink flex items-center gap-2 font-bold">
-            <Banknote className="text-brand-600 dark:text-brand-400 h-5 w-5" /> Salary reality (Nigeria, monthly)
+            <Banknote className="text-brand-600 dark:text-brand-400 h-5 w-5" /> Global salary (USD, annual)
           </h3>
           <dl className="mt-4 space-y-2 text-sm">
             <div className="flex justify-between">
               <dt className="text-ink-3">Entry level</dt>
-              <dd className="text-ink font-semibold">{formatNaira(career.salaryNgn.entry)}</dd>
+              <dd className="text-ink font-semibold">{formatUsd(career.salaryUsd.entry)}</dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-ink-3">Experienced</dt>
-              <dd className="text-ink font-semibold">{formatNaira(career.salaryNgn.experienced)}</dd>
+              <dd className="text-ink font-semibold">{formatUsd(career.salaryUsd.experienced)}</dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-ink-3">Demand outlook</dt>
@@ -210,13 +220,20 @@ export default async function CareerDetailPage({
         </ul>
       </section>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Link
-          href="/quiz"
+          href={`/roadmap?career=${career.slug}`}
           className="bg-brand-600 hover:bg-brand-700 dark:bg-brand-500 dark:hover:bg-brand-400 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white shadow-[var(--shadow-soft-brand)] transition-colors"
         >
+          <Route className="h-5 w-5" />
+          Get my roadmap
+        </Link>
+        <Link
+          href="/quiz"
+          className="border-line-strong text-brand-700 dark:text-brand-300 hover:border-brand-400 inline-flex items-center gap-2 rounded-xl border-2 bg-surface px-6 py-3 font-semibold transition-colors"
+        >
           <GraduationCap className="h-5 w-5" />
-          Not sure this fits you? Take the stream quiz
+          Not sure which path fits you? Find your career path
         </Link>
       </div>
 

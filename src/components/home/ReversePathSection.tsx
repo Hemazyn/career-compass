@@ -4,26 +4,27 @@ import { useState } from "react";
 import { ArrowRight, ChevronDown, Compass } from "lucide-react";
 import { Button, Container, Reveal } from "@/components/ui";
 import { cn } from "@/lib/utils";
+import { CAREERS as ALL_CAREERS } from "@/data/careers";
 
 const CAREERS = [
   {
-    title: "Pharmacist",
-    course: "Pharmacy (B.Pharm)",
+    title: "Aeronautical Engineer",
+    course: "Aeronautical / Aerospace Engineering (B.Eng)",
+    utme: ["English", "Mathematics", "Physics", "Chemistry"],
+    olevel: "5 credits incl. Maths, English, Physics & Chemistry — one sitting",
+    stream: "Science",
+  },
+  {
+    title: "Neuroscientist",
+    course: "Medicine & Surgery / Biochemistry (MBBS · B.Sc)",
     utme: ["English", "Physics", "Chemistry", "Biology"],
     olevel: "5 credits incl. Maths, English & three Sciences — one sitting",
     stream: "Science",
   },
   {
-    title: "Lawyer",
-    course: "Law (LL.B)",
-    utme: ["English", "Literature", "Government", "CRK/IRK"],
-    olevel: "5 credits incl. Maths, English & Literature — one sitting",
-    stream: "Arts",
-  },
-  {
-    title: "Accountant",
-    course: "Accounting (B.Sc)",
-    utme: ["English", "Mathematics", "Economics", "Commerce/Govt"],
+    title: "Actuary",
+    course: "Actuarial Science (B.Sc)",
+    utme: ["English", "Mathematics", "Economics", "Further Maths"],
     olevel: "5 credits incl. Maths, English & Economics — one sitting",
     stream: "Commercial",
   },
@@ -123,7 +124,7 @@ export function ReversePathSection() {
           </div>
 
           <p className="text-ink-3 mt-6 text-center text-[13px]">
-            Just one example — we have <span className="text-ink-2 font-semibold">22+ careers</span> fully mapped with reverse paths.
+            Just one example — we have <span className="text-ink-2 font-semibold">{ALL_CAREERS.length}+ careers</span> fully mapped with reverse paths.
           </p>
         </Reveal>
       </Container>

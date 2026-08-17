@@ -44,13 +44,15 @@ export interface Career {
   title: string;
   category: string;
   stream: Stream;
+  /** Position in the curated global ranking of the world's top careers (1 = best) */
+  rank: number;
   /** Primary course(s) that lead here */
   courseSlugs: string[];
   riasec: RiasecKey[]; // dominant Holland codes for this career
   description: string;
   dayToDay: string[];
-  /** Monthly salary range in Nigeria, NGN */
-  salaryNgn: { entry: number; experienced: number };
+  /** Annual salary range in USD — global standard for comparing careers worldwide */
+  salaryUsd: { entry: number; experienced: number };
   outlook: "high" | "growing" | "stable" | "competitive";
   licensing?: string; // e.g. "MDCN induction + housemanship"
   nyscNote?: string;

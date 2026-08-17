@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { cn, formatNaira } from "@/lib/utils";
+import { cn, formatNaira, formatUsd } from "@/lib/utils";
 
 describe("cn", () => {
   it("joins truthy class names", () => {
@@ -27,5 +27,19 @@ describe("formatNaira", () => {
 
   it("rounds to no decimals", () => {
     expect(formatNaira(1234.5)).not.toContain(".");
+  });
+});
+
+describe("formatUsd", () => {
+  it("formats whole numbers in USD", () => {
+    expect(formatUsd(90000)).toBe("$90,000");
+  });
+
+  it("formats small amounts", () => {
+    expect(formatUsd(0)).toBe("$0");
+  });
+
+  it("rounds to no decimals", () => {
+    expect(formatUsd(1234.5)).not.toContain(".");
   });
 });

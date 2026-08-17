@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You're offline — Career Compass</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root { color-scheme: light dark; }
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #072115;
+      color: #eaf5ee;
+      text-align: center;
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #2b8a57, #14472e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px -6px rgba(9, 33, 19, 0.5);
+    }
+    h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+    p { color: #a4beb0; font-size: 0.95rem; max-width: 28rem; line-height: 1.6; }
+    button {
+      margin-top: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border: 0;
+      border-radius: 0.75rem;
+      background: #1c6f43;
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #175a37; }
+    @media (prefers-color-scheme: light) {
+      body { background: #f5f9f6; color: #0d1a12; }
+      p { color: #44584c; }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo" aria-hidden="true">
+    <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="17.5" stroke="#f4faf6" stroke-width="3.5"/>
+      <path d="M32 14.5 L37.5 32 L32 49.5 L26.5 32 Z" fill="#fbbf24"/>
+      <path d="M32 14.5 L32 49.5" stroke="#f4faf6" stroke-width="2.5" opacity="0.9"/>
+      <path d="M14.5 32 L49.5 32" stroke="#f4faf6" stroke-width="2.5" opacity="0.9"/>
+    </svg>
+  </div>
+  <h1>You&rsquo;re offline</h1>
+  <p>Your career map needs an internet connection right now. Check your data and try again — your saved careers are still safe on this device.</p>
+  <button onclick="location.reload()">Try again</button>
+</body>
+</html>

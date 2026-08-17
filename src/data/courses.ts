@@ -333,6 +333,841 @@ export const COURSES: Course[] = [
     description:
       "General management foundation — differentiate it with certifications (project management, HR, digital marketing) or it stays generic.",
   },
+  {
+    slug: "aeronautical-engineering",
+    name: "Aeronautical / Aerospace Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 200, competitive: 260 },
+    sampleUniversities: ["ABU", "FUTA", "OAU", "UNILAG", "UNIBEN"],
+    description:
+      "Aircraft and spacecraft design, propulsion and maintenance. Nigeria's newest aviation hub plans (airlines, MROs) are creating demand — and the degree travels anywhere.",
+  },
+  {
+    slug: "physics",
+    name: "Physics",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 220 },
+    sampleUniversities: ["UI", "UNILAG", "OAU", "UNN", "ABU"],
+    description:
+      "The laws of matter, energy and the universe — from quantum mechanics to astrophysics. Leads to research, data, finance and engineering-adjacent careers.",
+  },
+  {
+    slug: "chemistry",
+    name: "Chemistry",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "ABU"],
+    description:
+      "The science of substances and reactions. Opens pharma, oil & gas, food, forensics and materials careers.",
+  },
+  {
+    slug: "mathematics",
+    name: "Mathematics",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics + 4 others (Further Maths preferred)",
+      compulsoryCredits: ["english", "mathematics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["UI", "UNILAG", "OAU", "UNN", "ABU"],
+    description:
+      "Pure and applied mathematics — the quiet gateway to data science, quant finance, cryptography and academia.",
+  },
+  {
+    slug: "statistics",
+    name: "Statistics",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["mathematics", "economics", "physics"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics + 4 others (Economics preferred)",
+      compulsoryCredits: ["english", "mathematics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UI", "UNN", "OAU", "LASU"],
+    description:
+      "Data collection, probability and inference — one of the most employable degrees in the world right now.",
+  },
+  {
+    slug: "geology",
+    name: "Geology",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["OAU", "UNILAG", "UNN", "ABU", "UNIBEN"],
+    description:
+      "The study of the earth — oil & gas, mining, water resources and environmental consulting all hire geologists.",
+  },
+  {
+    slug: "biochemistry",
+    name: "Biochemistry",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 220 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "ABU"],
+    description:
+      "The chemistry of living things — the launchpad for medical, pharma, forensic and biotech careers.",
+  },
+  {
+    slug: "microbiology",
+    name: "Microbiology",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 220 },
+    sampleUniversities: ["UNILAG", "UI", "UNN", "OAU", "ABU"],
+    description:
+      "Microorganisms and their uses — food safety, pharmaceuticals, diagnostics and public health.",
+  },
+  {
+    slug: "biotechnology",
+    name: "Biotechnology",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 220 },
+    sampleUniversities: ["UNILAG", "FUTA", "UNN", "OAU", "ABU"],
+    description:
+      "Engineering living systems — genetics, vaccines, agriculture and industrial biology. A genuinely frontier field.",
+  },
+  {
+    slug: "marine-biology",
+    name: "Marine Biology / Fisheries",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UNIBEN", "UNN", "OAU", "LASU"],
+    description:
+      "Life in oceans and coastal waters — blue economy roles in Nigeria's Gulf of Guinea are growing.",
+  },
+  {
+    slug: "zoology",
+    name: "Zoology / Animal Biology",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UI", "UNN", "OAU", "ABU"],
+    description:
+      "Animal life and behaviour — wildlife conservation, ecology, agriculture and research.",
+  },
+  {
+    slug: "botany",
+    name: "Botany / Plant Science",
+    faculty: "Science",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UI", "UNN", "OAU", "FUNAAB"],
+    description:
+      "Plant science — agriculture, pharmacology, ecology and environmental restoration.",
+  },
+  {
+    slug: "dentistry",
+    name: "Dentistry (BDS)",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits in ONE sitting: English, Mathematics, Physics, Chemistry, Biology",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 1,
+    },
+    durationYears: 6,
+    cutoffRange: { min: 200, competitive: 270 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNIBEN", "ABU"],
+    description:
+      "Oral health diagnosis and treatment. Like medicine, a regulated, respected and globally mobile profession.",
+  },
+  {
+    slug: "physiotherapy",
+    name: "Physiotherapy",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry, Biology",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 1,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNIBEN", "LASU"],
+    description:
+      "Restoring movement and function after injury or illness — sports clinics, hospitals and private practice.",
+  },
+  {
+    slug: "optometry",
+    name: "Optometry",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry, Biology",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 1,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["UNILAG", "ABU", "IMO", "UNIBEN", "OAU"],
+    description:
+      "Eye care and vision correction — a licensed clinical profession with strong private-practice income.",
+  },
+  {
+    slug: "veterinary-medicine",
+    name: "Veterinary Medicine (DVM)",
+    faculty: "Veterinary Medicine",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry, Biology",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 1,
+    },
+    durationYears: 6,
+    cutoffRange: { min: 200, competitive: 260 },
+    sampleUniversities: ["UNN", "ABU", "UI", "UNIMAID", "FUNAAB"],
+    description:
+      "Animal health and food safety — livestock, pets, wildlife and the growing agritech ecosystem.",
+  },
+  {
+    slug: "nutrition-dietetics",
+    name: "Nutrition & Dietetics",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 170, competitive: 230 },
+    sampleUniversities: ["UNILAG", "UNN", "OAU", "ABU", "UNIBEN"],
+    description:
+      "Food, health and disease prevention — hospitals, food companies, sports and public health.",
+  },
+  {
+    slug: "radiography",
+    name: "Radiography / Medical Imaging",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry, Biology",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 1,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["UNILAG", "UNIBEN", "ABU", "UNN", "OAU"],
+    description:
+      "X-rays, CT, MRI and ultrasound imaging — a licensed clinical career in every hospital.",
+  },
+  {
+    slug: "public-health",
+    name: "Public Health",
+    faculty: "Medical Sciences",
+    stream: "science",
+    utmeSubjects: ["physics", "chemistry", "biology"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 230 },
+    sampleUniversities: ["UNILAG", "UI", "UNN", "OAU", "ABU"],
+    description:
+      "Preventing disease at population level — epidemiology, policy, NGOs and international health agencies.",
+  },
+  {
+    slug: "civil-engineering",
+    name: "Civil Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 200, competitive: 250 },
+    sampleUniversities: ["UNILAG", "ABU", "OAU", "FUTA", "UNN"],
+    description:
+      "Roads, bridges, buildings and water systems — Nigeria's infrastructure gap means decades of demand.",
+  },
+  {
+    slug: "chemical-engineering",
+    name: "Chemical Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 200, competitive: 250 },
+    sampleUniversities: ["UNILAG", "ABU", "OAU", "UNIBEN", "FUTA"],
+    description:
+      "Turning raw materials into products — oil & gas, food, pharmaceuticals and industrial plants.",
+  },
+  {
+    slug: "petroleum-engineering",
+    name: "Petroleum Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 200, competitive: 260 },
+    sampleUniversities: ["UNIBEN", "UNILAG", "RSU", "UNN", "ABU"],
+    description:
+      "Extracting oil and gas — high pay, cyclical demand, and skills that transfer to renewables and energy.",
+  },
+  {
+    slug: "mechatronics-engineering",
+    name: "Mechatronics Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["FUTA", "UNILAG", "ABU", "OAU", "UNIBEN"],
+    description:
+      "Robotics, automation and intelligent machines — the fastest-growing engineering discipline globally.",
+  },
+  {
+    slug: "biomedical-engineering",
+    name: "Biomedical Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Chemistry + 1 other science",
+      compulsoryCredits: ["english", "mathematics", "physics", "chemistry"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["UNILAG", "OAU", "FUTA", "ABU", "UNN"],
+    description:
+      "Engineering meets medicine — medical devices, prosthetics, imaging equipment and health-tech.",
+  },
+  {
+    slug: "computer-engineering",
+    name: "Computer Engineering",
+    faculty: "Engineering",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics + 2 others",
+      compulsoryCredits: ["english", "mathematics", "physics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 190, competitive: 250 },
+    sampleUniversities: ["UNILAG", "OAU", "FUTA", "UNN", "Covenant"],
+    description:
+      "Hardware + software — embedded systems, IoT and the physical side of computing.",
+  },
+  {
+    slug: "food-science",
+    name: "Food Science & Technology",
+    faculty: "Agriculture",
+    stream: "science",
+    utmeSubjects: ["chemistry", "biology", "agric"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Chemistry, Biology + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "chemistry", "biology"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["FUNAAB", "UNN", "UI", "OAU", "ABU"],
+    description:
+      "Making food safe, nutritious and long-lasting — manufacturing, quality control and NAFDAC-regulated industries.",
+  },
+  {
+    slug: "urban-regional-planning",
+    name: "Urban & Regional Planning",
+    faculty: "Environmental Sciences",
+    stream: "science",
+    utmeSubjects: ["mathematics", "geography", "economics"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Geography + 2 others",
+      compulsoryCredits: ["english", "mathematics", "geography"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "OAU", "ABU", "FUTA", "UNN"],
+    description:
+      "Designing cities and regions — zoning, transport, housing policy and Nigeria's urban boom.",
+  },
+  {
+    slug: "quantity-surveying",
+    name: "Quantity Surveying",
+    faculty: "Environmental Sciences",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "economics"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics + 2 others (Economics preferred)",
+      compulsoryCredits: ["english", "mathematics", "physics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 170, competitive: 220 },
+    sampleUniversities: ["UNILAG", "OAU", "FUTA", "UNN", "ABU"],
+    description:
+      "The cost-control brain of construction — contracts, estimates and project budgets.",
+  },
+  {
+    slug: "building",
+    name: "Building / Construction Technology",
+    faculty: "Environmental Sciences",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "chemistry"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics + 2 others",
+      compulsoryCredits: ["english", "mathematics", "physics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 170, competitive: 220 },
+    sampleUniversities: ["UNILAG", "OAU", "FUTA", "ABU", "UNN"],
+    description:
+      "Construction management, materials and site delivery — the field arm of the built environment.",
+  },
+  {
+    slug: "surveying-geoinformatics",
+    name: "Surveying & Geoinformatics",
+    faculty: "Environmental Sciences",
+    stream: "science",
+    utmeSubjects: ["mathematics", "physics", "geography"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Physics, Geography + 1 other subject",
+      compulsoryCredits: ["english", "mathematics", "physics", "geography"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 5,
+    cutoffRange: { min: 160, competitive: 200 },
+    sampleUniversities: ["UNILAG", "FUTA", "OAU", "UNN", "ABU"],
+    description:
+      "Land measurement, GPS and mapping — land titles, construction and geospatial tech.",
+  },
+  {
+    slug: "psychology",
+    name: "Psychology",
+    faculty: "Social Sciences",
+    stream: "art",
+    utmeSubjects: ["government", "economics", "literature"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics + 3 others (Government/Economics preferred)",
+      compulsoryCredits: ["english", "mathematics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 230 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "LASU"],
+    description:
+      "The science of behaviour and the mind — clinical practice, HR, UX research and counselling.",
+  },
+  {
+    slug: "sociology",
+    name: "Sociology",
+    faculty: "Social Sciences",
+    stream: "art",
+    utmeSubjects: ["government", "economics", "literature"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics + 3 others",
+      compulsoryCredits: ["english", "mathematics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "ABU"],
+    description:
+      "How societies and groups work — research, social work, development and policy.",
+  },
+  {
+    slug: "political-science",
+    name: "Political Science",
+    faculty: "Social Sciences",
+    stream: "art",
+    utmeSubjects: ["government", "economics", "literature"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Government + 2 others",
+      compulsoryCredits: ["english", "mathematics", "government"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 230 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "ABU"],
+    description:
+      "Power, governance and public policy — politics, civil service, intelligence and development.",
+  },
+  {
+    slug: "history",
+    name: "History",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["government", "history", "literature"],
+    oLevel: {
+      summary: "5 credits: English, Literature/History + 3 others",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 200 },
+    sampleUniversities: ["UI", "UNILAG", "OAU", "UNN", "ABU"],
+    description:
+      "The study of the past — heritage, archives, museums, policy and academia.",
+  },
+  {
+    slug: "philosophy",
+    name: "Philosophy",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["literature", "government", "crs"],
+    oLevel: {
+      summary: "5 credits: English + 4 others",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 190 },
+    sampleUniversities: ["UI", "UNILAG", "OAU", "UNN", "ABU"],
+    description:
+      "Logic, ethics and critical thinking — a strong foundation for law, policy and strategy careers.",
+  },
+  {
+    slug: "linguistics",
+    name: "Linguistics",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["literature", "government", "crs"],
+    oLevel: {
+      summary: "5 credits: English, Literature + 3 others",
+      compulsoryCredits: ["english", "literature"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 200 },
+    sampleUniversities: ["UI", "UNILAG", "OAU", "UNN", "ABU"],
+    description:
+      "The science of language — translation, tech (NLP), publishing and academia.",
+  },
+  {
+    slug: "music",
+    name: "Music",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["literature", "fine-art", "government"],
+    oLevel: {
+      summary: "5 credits: English + 4 others (Fine Art/Music preferred)",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 190 },
+    sampleUniversities: ["UNILAG", "UNN", "UI", "OAU", "ABU"],
+    description:
+      "Performance, composition and production — Afrobeats has made this one of Nigeria's most visible export industries.",
+  },
+  {
+    slug: "fine-arts",
+    name: "Fine & Applied Arts",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["literature", "fine-art", "government"],
+    oLevel: {
+      summary: "5 credits: English + 4 others (Fine Art preferred)",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 190 },
+    sampleUniversities: ["UNILAG", "UNN", "OAU", "UI", "ABU"],
+    description:
+      "Painting, sculpture and applied design — the base for graphic design, animation and creative direction.",
+  },
+  {
+    slug: "fashion-design",
+    name: "Fashion Design & Textiles",
+    faculty: "Arts",
+    stream: "art",
+    utmeSubjects: ["literature", "fine-art", "government"],
+    oLevel: {
+      summary: "5 credits: English + 4 others (Fine Art preferred)",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 190 },
+    sampleUniversities: ["UNILAG", "UNN", "ABU", "OAU", "DELSU"],
+    description:
+      "Clothing and textile design — one of Africa's fastest-growing creative industries.",
+  },
+  {
+    slug: "education",
+    name: "Education / Teaching",
+    faculty: "Education",
+    stream: "art",
+    utmeSubjects: ["literature", "government", "economics"],
+    oLevel: {
+      summary: "5 credits: English + 4 others",
+      compulsoryCredits: ["english"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UI", "OAU", "UNN", "ABU"],
+    description:
+      "Teaching and education leadership — schools, edtech and curriculum development.",
+  },
+  {
+    slug: "marketing",
+    name: "Marketing",
+    faculty: "Management Sciences",
+    stream: "commercial",
+    utmeSubjects: ["mathematics", "economics", "commerce"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Economics + 2 others",
+      compulsoryCredits: ["english", "mathematics", "economics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["UNILAG", "UNIBEN", "OAU", "LASU", "UNN"],
+    description:
+      "Understanding customers and growing brands — digital marketing has exploded the range of roles.",
+  },
+  {
+    slug: "actuarial-science",
+    name: "Actuarial Science",
+    faculty: "Management Sciences",
+    stream: "commercial",
+    utmeSubjects: ["mathematics", "economics", "further-maths"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Further Maths/Economics + 3 others",
+      compulsoryCredits: ["english", "mathematics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 170, competitive: 230 },
+    sampleUniversities: ["UNILAG", "UNN", "LASU", "OAU", "ABU"],
+    description:
+      "Managing financial risk with maths and statistics — consistently ranked among the best jobs in the world.",
+  },
+  {
+    slug: "estate-management",
+    name: "Estate Management",
+    faculty: "Environmental Sciences",
+    stream: "commercial",
+    utmeSubjects: ["mathematics", "economics", "geography"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Economics + 2 others",
+      compulsoryCredits: ["english", "mathematics", "economics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 160, competitive: 210 },
+    sampleUniversities: ["UNILAG", "OAU", "ABU", "UNN", "FUTA"],
+    description:
+      "Property valuation, management and real estate — Nigeria's largest informal wealth market, going formal.",
+  },
+  {
+    slug: "hospitality-tourism",
+    name: "Hospitality & Tourism Management",
+    faculty: "Management Sciences",
+    stream: "commercial",
+    utmeSubjects: ["mathematics", "economics", "commerce"],
+    oLevel: {
+      summary: "5 credits: English, Mathematics, Economics + 2 others",
+      compulsoryCredits: ["english", "mathematics", "economics"],
+      minCredits: 5,
+      maxSittings: 2,
+    },
+    durationYears: 4,
+    cutoffRange: { min: 150, competitive: 200 },
+    sampleUniversities: ["UNILAG", "UNN", "OAU", "LASU", "ABU"],
+    description:
+      "Hotels, events, travel and food service — a people-focused industry with real management careers.",
+  },
 ];
 
 export const getCourse = (slug: string) => COURSES.find((c) => c.slug === slug);
+
+export interface CourseDifficulty {
+  /** 1 (more accessible) → 5 (extremely competitive) */
+  level: 1 | 2 | 3 | 4 | 5;
+  label: string;
+  blurb: string;
+  /** Tailwind class for filled meter segments */
+  dot: string;
+  /** Tailwind class for the label text */
+  text: string;
+}
+
+/**
+ * Admission difficulty derived from the modelled JAMB cutoff range.
+ * A one-sitting O'Level requirement is noted in the blurb but does not
+ * inflate the level — cutoffs are the strongest signal we model.
+ */
+export function courseDifficulty(course: Course): CourseDifficulty {
+  const { competitive } = course.cutoffRange;
+  const level: CourseDifficulty["level"] =
+    competitive >= 280 ? 5 : competitive >= 260 ? 4 : competitive >= 240 ? 3 : competitive >= 220 ? 2 : 1;
+
+  const meta: Record<number, { label: string; dot: string; text: string }> = {
+    5: { label: "Extremely competitive", dot: "bg-red-500", text: "text-red-600 dark:text-red-400" },
+    4: { label: "Very competitive", dot: "bg-orange-500", text: "text-orange-600 dark:text-orange-400" },
+    3: { label: "Competitive", dot: "bg-amber-500", text: "text-amber-600 dark:text-amber-400" },
+    2: { label: "Moderate", dot: "bg-lime-500", text: "text-lime-600 dark:text-lime-400" },
+    1: { label: "More accessible", dot: "bg-green-500", text: "text-green-600 dark:text-green-400" },
+  };
+
+  const sittingNote =
+    course.oLevel.maxSittings === 1
+      ? ", and all O'Level credits must come from ONE sitting"
+      : "";
+
+  return {
+    level,
+    label: meta[level].label,
+    blurb: `Competitive admission typically needs ${competitive}+ in JAMB${sittingNote}.`, 
+    dot: meta[level].dot,
+    text: meta[level].text,
+  };
+}

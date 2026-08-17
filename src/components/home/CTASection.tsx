@@ -40,7 +40,7 @@ export function CTASection() {
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Button href="/quiz" variant="accent" size="lg" iconRight={<ArrowRight className="h-4 w-4" />} className="w-full sm:w-auto">
-                  Start the quiz
+                  Find your career path
                 </Button>
                 <Button
                   href="/careers"

@@ -3,6 +3,7 @@ export { BrokenChainSection } from './BrokenChainSection';
 export { ReversePathSection } from './ReversePathSection';
 export { WhoIsThisForSection } from './WhoIsThisForSection';
 export { StatsSection } from './StatsSection';
+export { CareerOfTheDaySection } from './CareerOfTheDaySection';
 export { PivotSection } from './PivotSection';
 export { ResourcesSection } from './ResourcesSection';
 export { FAQSection } from './FAQSection';

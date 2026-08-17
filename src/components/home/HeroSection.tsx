@@ -119,7 +119,7 @@ export function HeroSection() {
 
           <div className="animate-fade-in-up mt-10 flex flex-col items-center justify-center gap-3 [animation-delay:200ms] sm:flex-row">
             <Button href="/quiz" size="lg" icon={<Compass className="h-5 w-5" />} className="w-full sm:w-auto">
-              Find my stream
+              Find your career path
             </Button>
             <Button href="/careers" variant="secondary" size="lg" iconRight={<ArrowRight className="h-4 w-4" />} className="w-full sm:w-auto">
               Explore all careers

@@ -34,6 +34,15 @@ export default function QuizPage() {
 
   return (
     <div className="container mx-auto max-w-2xl px-4 py-16">
+      {/* Page intro */}
+      <header className="mb-10 text-center">
+        <h1 className="text-ink text-3xl font-extrabold tracking-tight sm:text-4xl">Find your career path</h1>
+        <p className="text-ink-2 mx-auto mt-3 max-w-md">
+          18 quick questions, 3 minutes. We&apos;ll match you to the SSS stream —{" "}
+          <strong className="text-ink">Science, Arts or Commercial</strong> — that fits how you think and work.
+        </p>
+      </header>
+
       {/* Progress */}
       <div className="mb-10">
         <div className="mb-2 flex justify-between text-sm">
