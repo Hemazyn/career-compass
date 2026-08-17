@@ -7,8 +7,16 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/", priority: 1, changeFrequency: "weekly" },
   { path: "/careers", priority: 0.9, changeFrequency: "weekly" },
   { path: "/quiz", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/check", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/saved", priority: 0.5, changeFrequency: "monthly" },
+  { path: "/roadmap", priority: 0.7, changeFrequency: "monthly" },
   { path: "/pivot", priority: 0.8, changeFrequency: "monthly" },
   { path: "/resources", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/about", priority: 0.5, changeFrequency: "monthly" },
+  { path: "/faq", priority: 0.5, changeFrequency: "monthly" },
+  { path: "/contact", priority: 0.3, changeFrequency: "yearly" },
+  { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
+  { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

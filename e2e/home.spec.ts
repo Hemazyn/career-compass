@@ -6,7 +6,7 @@ test.describe("Homepage", () => {
     await expect(
       page.getByRole("heading", { level: 1, name: /Your career is a map/i })
     ).toBeVisible();
-    await expect(page.getByRole("link", { name: /Find my stream/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Find your career path/i }).first()).toBeVisible();
     await expect(page.getByRole("link", { name: /Explore all careers/i })).toBeVisible();
   });
 
@@ -15,7 +15,7 @@ test.describe("Homepage", () => {
     const nav = page.getByRole("navigation", { name: "Primary" });
     for (const [label, path] of [
       ["Careers", "/careers"],
-      ["Stream Quiz", "/quiz"],
+      ["Career Path Quiz", "/quiz"],
       ["Post-NYSC", "/pivot"],
       ["Resources", "/resources"],
     ] as const) {

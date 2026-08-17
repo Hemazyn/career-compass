@@ -17,7 +17,16 @@ export const SITE_LOCALE = "en_NG";
 
 export const NAV_LINKS = [
   { href: "/careers", label: "Careers" },
-  { href: "/quiz", label: "Stream Quiz" },
+  { href: "/check", label: "Subject Check" },
+  { href: "/quiz", label: "Career Path Quiz" },
   { href: "/pivot", label: "Post-NYSC" },
   { href: "/resources", label: "Resources" },
 ] as const;
+
+/** Public contact channels shown on /contact and the footer. */
+export const CONTACT = {
+  email: "immanueltofunmi@gmail.com",
+  x: "https://x.com/imanuel_tofunmi",
+  linkedin: "https://www.linkedin.com/in/devemma",
+  portfolio: "https://iamtofunmi.vercel.app",
+} as const;

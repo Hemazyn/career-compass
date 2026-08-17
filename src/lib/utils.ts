@@ -11,3 +11,10 @@ export const formatNaira = (n: number) =>
     currency: "NGN",
     maximumFractionDigits: 0,
   }).format(n);
+
+export const formatUsd = (n: number) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(n);

@@ -1,19 +1,20 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Careers explorer", () => {
-  test("lists careers and filters by search", async ({ page }) => {
+  test("lists careers with pagination and filters by search", async ({ page }) => {
     await page.goto("/careers");
     await expect(page.getByRole("heading", { name: /Explore careers/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Medical Doctor/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Aeronautical Engineer/i })).toBeVisible();
+    await expect(page.getByText(/Page 1 of 18/i)).toBeVisible();
 
-    await page.getByLabel("Search careers").fill("lawyer");
-    await expect(page.getByRole("link", { name: /Lawyer/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Medical Doctor/i })).toHaveCount(0);
+    await page.getByLabel("Search careers").fill("neuroscientist");
+    await expect(page.getByRole("link", { name: /Neuroscientist/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Aeronautical Engineer/i })).toHaveCount(0);
   });
 
   test("filters by stream tab", async ({ page }) => {
     await page.goto("/careers");
-    await page.getByRole("button", { name: "Commercial" }).click();
+    await page.getByRole("button", { name: "Commercial", exact: true }).click();
     await expect(page.getByRole("link", { name: /Chartered Accountant/i })).toBeVisible();
     await expect(page.getByRole("link", { name: /Medical Doctor/i })).toHaveCount(0);
   });

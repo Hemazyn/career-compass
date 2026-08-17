@@ -20,6 +20,7 @@ export const SUBJECTS: Subject[] = [
   { id: "accounting", name: "Financial Accounting", streams: ["commercial"] },
   { id: "commerce", name: "Commerce", streams: ["commercial"] },
   { id: "business-studies", name: "Business Studies", streams: ["commercial"] },
+  { id: "civic", name: "Civic Education", streams: ["science", "art", "commercial"] },
 ];
 
 export const subjectName = (id: string) => SUBJECTS.find((s) => s.id === id)?.name ?? id;

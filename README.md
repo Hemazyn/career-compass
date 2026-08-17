@@ -19,11 +19,11 @@ Post-NYSC       "What now?" with zero career identity
 ### 1. 🎯 Reverse Path Engine (`/careers/[slug]`)
 Pick a dream career and trace it **backwards**: career → licensing → university course → realistic cutoffs → UTME subject combination → O'Level requirements (including sittings rules) → the SSS stream you must choose at JSS3. Plus salary reality in NGN and Plan B routes if the direct path fails.
 
-### 2. 🧭 Stream Selector Quiz (`/quiz`)
-18-question assessment grounded in the RIASEC (Holland Codes) interest model, adapted for Nigerian JSS3 students. Recommends Science / Art / Commercial with a fit percentage — and crucially shows **which doors each stream opens AND closes**. Results shareable to WhatsApp.
+### 2. 🧭 Career Path Quiz (`/quiz`)
+18-question assessment grounded in the RIASEC (Holland Codes) interest model, adapted for Nigerian JSS3 students. Recommends the Science / Art / Commercial stream that fits your career path — with a fit percentage — and crucially shows **which doors each stream opens AND closes**. Results shareable to WhatsApp.
 
 ### 3. 🔎 Career Explorer (`/careers`)
-Searchable, stream-filterable catalog of 22 careers with Nigerian salary ranges, demand outlook, day-to-day reality, licensing paths (MDCN, PCN, ICAN, COREN, MLSCN, CIPM, Law School...) and NYSC notes.
+Searchable, stream-filterable catalog of **200+ careers ranked from the world's top career roles** (rank 1 = top career worldwide), with global USD salary ranges, demand outlook, day-to-day reality, licensing paths (MDCN, PCN, ICAN, COREN, MLSCN, CIPM, Law School...) and NYSC notes.
 
 ### 4. 🔀 Post-NYSC Pivot Guide (`/pivot`)
 Pick your degree family (Sciences, Engineering, Social Sciences, Arts & Humanities, Management, or "any degree") → get realistic pivot paths graduates actually take, each with an honest "reality check," fit rating (natural/stretch/bold), concrete first steps, time-to-employable estimates, and mostly-free Nigerian resources.
@@ -33,6 +33,9 @@ Curated, verified resources for Nigerian students: official JAMB/WAEC/NECO/NABTE
 
 ### 6. 📲 Shareable results (`/s/[stream]`)
 Quiz results share to a public page per stream with a **generated OG image** (`next/og`) — the link preview in WhatsApp shows a branded result card. This is the viral loop: friend sees card → takes quiz → shares card.
+
+### 7. 📱 PWA — installable & offline
+Installable web app: web app manifest with brand icons (SVG + 192/512 PNGs, apple-touch-icon), iOS install metadata, an install-prompt banner (`beforeinstallprompt` + iOS “Add to Home Screen” hint), and a hand-rolled service worker (`public/sw.js`) that precaches the top pages, caches visited pages for offline use, and serves a branded `/offline.html` fallback. Subscribable **push notifications** (standard Web Push / VAPID) with a ready-to-run sender script.
 
 ## SEO (big-tech standards)
 
@@ -77,9 +80,20 @@ npm run lint
 - Design tokens live in `src/app/globals.css` (semantic `--color-canvas/surface/ink/line` + brand/accent scales). Dark mode is class-based with a no-FOUC inline script in `root layout`.
 - Site-wide constants (name, URL, description, nav) live in `src/lib/site.ts` — set `NEXT_PUBLIC_SITE_URL` to your production domain.
 
+## PWA & push notifications
+
+- **Service worker** (`public/sw.js`): precaches the offline fallback, manifest, icons and the most useful pages; network-first navigations with cache → `/offline.html` fallback; stale-while-revalidate for hashed `_next` assets. Bump the `-vN` cache keys when shipping big changes — old caches are purged automatically on activate.
+- **Registration** happens only in production (`ServiceWorkerRegister`) to avoid caching dev hot-reload chunks.
+- **Install prompt**: `InstallPrompt` listens for `beforeinstallprompt` (Chrome/Android/Edge) and shows an iOS “Add to Home Screen” hint on Safari.
+- **Push notifications**: visitors opt in via the footer toggle, which subscribes through the Push API and stores the subscription in localStorage (`career-compass-push-subscription`). To send:
+  1. Generate VAPID keys: `npx web-push generate-vapid-keys`
+  2. Put the public key in your deploy env as `NEXT_PUBLIC_VAPID_PUBLIC_KEY` (the site embeds it when users subscribe)
+  3. Export subscriptions from a browser where someone opted in (see `scripts/send-push.mjs`) and run the sender script with `VAPID_PUBLIC_KEY` / `VAPID_PRIVATE_KEY` set
+- For a managed alternative to self-sending, OneSignal or Firebase Cloud Messaging can be swapped in without touching the service worker's push handlers.
+
 ## Data disclaimer
 
-Course requirements are modeled on the JAMB e-Brochure but **must be verified against [jamb.gov.ng](https://www.jamb.gov.ng)** — requirements vary by institution and year. Salary figures are indicative monthly NGN ranges. Resource links in `/resources` are external — verify costs and dates on the official sites.
+Course requirements are modeled on the JAMB e-Brochure but **must be verified against [jamb.gov.ng](https://www.jamb.gov.ng)** — requirements vary by institution and year. Salary figures are indicative annual USD ranges (global standard) and vary widely by country, employer and specialisation. Resource links in `/resources` are external — verify costs and dates on the official sites.
 
 ## Roadmap
 
@@ -89,8 +103,8 @@ Course requirements are modeled on the JAMB e-Brochure but **must be verified ag
 - [x] Test suite: Vitest (unit + component) & Playwright (E2E)
 - [x] Resource hub with search & categories
 - [x] Dark mode + design-system polish
+- [x] Offline-first PWA (service worker, install prompt, push notifications) for low-data users
 - [ ] Full JAMB brochure ingestion (all ~500 courses, per-institution requirements) → Supabase
-- [ ] Offline-first PWA (service worker + IndexedDB) for low-data users
 - [ ] AI advisor (RAG over the career graph)
 
 ## Run locally

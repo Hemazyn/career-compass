@@ -19,7 +19,7 @@ describe("careers data graph", () => {
     for (const c of CAREERS) {
       expect(STREAMS).toContain(c.stream);
       expect(VALID_OUTLOOKS).toContain(c.outlook);
-      expect(c.salaryNgn.experienced).toBeGreaterThanOrEqual(c.salaryNgn.entry);
+      expect(c.salaryUsd.experienced).toBeGreaterThanOrEqual(c.salaryUsd.entry);
     }
   });
 
@@ -51,6 +51,29 @@ describe("careers data graph", () => {
       expect(c.description.length).toBeGreaterThan(40);
       expect(c.dayToDay.length).toBeGreaterThan(0);
       expect(c.altRoutes.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("orders careers by a contiguous global rank (1 = top career worldwide)", () => {
+    expect(CAREERS.length).toBeGreaterThanOrEqual(200);
+    const ranks = CAREERS.map((c) => c.rank);
+    expect(new Set(ranks).size).toBe(ranks.length);
+    expect(ranks).toEqual([...Array(CAREERS.length)].map((_, i) => i + 1));
+  });
+
+  it("leads the science stream with aspirational careers, not the most common ones", () => {
+    const science = careersByStream("science");
+    const topSlugs = science.slice(0, 10).map((c) => c.slug);
+    // The user's named priorities for science should sit near the top
+    for (const slug of ["aeronautical-engineer", "aerospace-engineer", "quantum-physicist", "neuroscientist"]) {
+      expect(topSlugs.slice(0, 6)).toContain(slug);
+    }
+    // The most common careers must not dominate the top of any stream list
+    const common = new Set(["doctor", "pharmacist", "nurse", "accountant", "lawyer"]);
+    for (const stream of STREAMS) {
+      const firstFive = careersByStream(stream).slice(0, 5);
+      const commonCount = firstFive.filter((c) => common.has(c.slug)).length;
+      expect(commonCount, `${stream} stream leads with common careers`).toBeLessThan(2);
     }
   });
 });

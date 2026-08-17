@@ -5,6 +5,7 @@ import {
   ReversePathSection,
   WhoIsThisForSection,
   StatsSection,
+  CareerOfTheDaySection,
   PivotSection,
   ResourcesSection,
   FAQSection,
@@ -13,6 +14,9 @@ import {
 import { Divider, JsonLd } from "@/components/ui";
 import { FAQ_ITEMS } from "@/data/faq";
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from "@/lib/site";
+
+// Career of the day refreshes daily; regenerate the static home page once per day.
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} — Find your path, Nigeria`,
@@ -53,6 +57,7 @@ export default function HomePage() {
       <ReversePathSection />
       <WhoIsThisForSection />
       <StatsSection />
+      <CareerOfTheDaySection />
       <Divider className="mx-auto max-w-5xl px-4" />
       <PivotSection />
       <ResourcesSection />
