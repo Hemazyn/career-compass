@@ -14,15 +14,18 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#1c6f43",
     categories: ["education", "career"],
     lang: "en-NG",
+    // PNG only: launchers that can't rasterize an SVG manifest icon (common
+    // on Android) fall back to showing a plain letter instead of the logo.
+    // The browser-tab favicon still comes from src/app/icon.svg separately.
     icons: [
-      {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-      },
       {
         src: "/app-icon-192.png",
         sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/app-icon-512.png",
+        sizes: "512x512",
         type: "image/png",
       },
       {
@@ -30,11 +33,6 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "192x192",
         type: "image/png",
         purpose: "maskable",
-      },
-      {
-        src: "/app-icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
       },
       {
         src: "/app-icon-512.png",

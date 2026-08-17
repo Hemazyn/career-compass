@@ -1,46 +1,29 @@
 /* Career Compass service worker
  * Strategy:
- *  - Precache the offline fallback, manifest, icons, and the most useful pages
- *    (home, tools, and the top-ranked careers) on install.
- *  - Navigations: network-first, falling back to the cache, then to /offline.html.
+ *  - Precache only the offline shell, manifest and icons on install. Fetching
+ *    every top page at install would saturate a slow mobile connection right
+ *    after first load — pages are instead cached in the runtime cache as the
+ *    student visits them.
+ *  - Navigations: cache-first (stale-while-revalidate), so the app shows
+ *    instantly when launched from the home screen; the page is refreshed in
+ *    the background on each visit. Offline falls back to /offline.html.
  *  - Same-origin assets (hashed _next chunks, images, fonts): stale-while-revalidate.
  *  - Cross-origin requests are never cached.
  *
- * After an online visit to any page, its assets are cached, so visited pages
- * work fully offline. Precached top pages are available offline immediately.
+ * After an online visit to any page, it works fully offline.
  */
 const CACHE_PREFIX = "career-compass";
-const PRECACHE_CACHE = `${CACHE_PREFIX}-precache-v3`;
-const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v3`;
+const PRECACHE_CACHE = `${CACHE_PREFIX}-precache-v4`;
+const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v4`;
 
-// Offline essentials + the pages students open most (top-ranked careers).
+// Offline essentials. Everything else is cached on first visit (runtime cache).
 const PRECACHE_URLS = [
   "/offline.html",
   "/manifest.webmanifest",
   "/app-icon-192.png",
   "/app-icon-512.png",
   "/apple-touch-icon-180.png",
-  "/icon.svg",
   "/",
-  "/careers",
-  "/quiz",
-  "/check",
-  "/roadmap",
-  "/pivot",
-  "/resources",
-  "/saved",
-  "/faq",
-  "/about",
-  "/careers/aeronautical-engineer",
-  "/careers/aerospace-engineer",
-  "/careers/quantum-physicist",
-  "/careers/neuroscientist",
-  "/careers/ai-ml-engineer",
-  "/careers/data-scientist",
-  "/careers/neurosurgeon",
-  "/careers/pilot",
-  "/careers/robotics-engineer",
-  "/careers/cybersecurity-engineer",
 ];
 
 self.addEventListener("install", (event) => {
@@ -85,18 +68,22 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  // Navigations: try the network first, fall back to cache, then offline page
+  // Navigations: serve the cached page instantly, refresh it in the
+  // background, and fall back to the offline page when the network fails.
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(RUNTIME_CACHE).then((cache) => cache.put(request, copy));
-          return response;
-        })
-        .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match("/offline.html"))
-        )
+      caches.match(request).then((cached) => {
+        const network = fetch(request)
+          .then((response) => {
+            if (response && response.ok) {
+              const copy = response.clone();
+              caches.open(RUNTIME_CACHE).then((cache) => cache.put(request, copy));
+            }
+            return response;
+          })
+          .catch(() => cached || caches.match("/offline.html"));
+        return cached || network;
+      })
     );
     return;
   }

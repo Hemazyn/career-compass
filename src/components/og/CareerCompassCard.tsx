@@ -20,19 +20,19 @@ export function CareerCompassCard({ title, subtitle }: CareerCompassCardProps) {
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 32 }}>
-        <div
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: 16,
-            background: "#1c6f43",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          🧭
-        </div>
+        <svg width="56" height="56" viewBox="0 0 64 64">
+          <defs>
+            <linearGradient id="cc-og-logo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#2b8a57" />
+              <stop offset="1" stopColor="#14472e" />
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="15" fill="url(#cc-og-logo)" />
+          <circle cx="32" cy="32" r="17.5" fill="none" stroke="#f4faf6" strokeWidth="3.5" />
+          <path d="M32 14.5 L37.5 32 L32 49.5 L26.5 32 Z" fill="#fbbf24" />
+          <path d="M32 14.5 L32 49.5" stroke="#f4faf6" strokeWidth="2.5" opacity="0.9" />
+          <path d="M14.5 32 L49.5 32" stroke="#f4faf6" strokeWidth="2.5" opacity="0.9" />
+        </svg>
         <span style={{ fontWeight: 700, letterSpacing: 1 }}>Career Compass</span>
       </div>
 

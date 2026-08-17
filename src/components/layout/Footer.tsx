@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { ArrowRight, Compass, Globe, Heart, Linkedin, Mail } from 'lucide-react';
-import { Container } from '@/components/ui';
+import { ArrowRight, Globe, Heart, Linkedin, Mail } from 'lucide-react';
+import { Container, Logo } from '@/components/ui';
 import { CONTACT } from '@/lib/site';
 
 const FOOTER_NAV = [
@@ -80,9 +80,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-2.5 text-lg font-bold">
-              <span className="bg-brand-600 flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-(--shadow-soft-brand)">
-                <Compass className="h-5 w-5" />
-              </span>
+              <Logo className="h-9 w-9 shadow-(--shadow-soft-brand)" />
               Career<span className="text-brand-400">Compass</span>
             </Link>
             <p className="text-brand-300/80 mt-4 max-w-xs text-sm leading-relaxed">The free reverse-path engine for Nigerian students. From JSS3 stream choice to post-NYSC pivots — every decision mapped.</p>

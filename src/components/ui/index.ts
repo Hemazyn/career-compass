@@ -6,5 +6,6 @@ export { Divider } from './Divider';
 export { DocPage, DocSection } from './DocPage';
 export { IconBox } from './IconBox';
 export { JsonLd } from './JsonLd';
+export { Logo } from './Logo';
 export { Reveal } from './Reveal';
 export { SectionHeader } from './SectionHeader';

@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Compass, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Logo } from '@/components/ui';
 import { NAV_LINKS } from '@/lib/site';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -33,9 +34,7 @@ export function NavBar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}{' '}
         <Link href="/" onClick={() => setOpen(false)} className="text-ink group flex items-center gap-2 text-[17px] font-bold tracking-tight" aria-label="Career Compass — home">
-          <span className="bg-brand-600 dark:bg-brand-500 group-hover:bg-brand-700 dark:group-hover:bg-brand-400 flex h-8 w-8 items-center justify-center rounded-xl text-white shadow-(--shadow-soft-brand) transition-colors duration-200">
-            <Compass className="h-4.5 w-4.5" />
-          </span>
+          <Logo className="h-8 w-8 shadow-(--shadow-soft-brand) transition-transform duration-200 group-hover:scale-105" />
           <span>
             Career<span className="text-brand-600 dark:text-brand-400">Compass</span>
           </span>
