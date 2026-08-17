@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { ArrowRight, Compass, Globe, Heart, Linkedin, Mail } from 'lucide-react';
 import { Container } from '@/components/ui';
 import { CONTACT } from '@/lib/site';
-// import { NotificationToggle } from '@/components/layout/NotificationToggle';
 
 const FOOTER_NAV = [
   {
@@ -134,10 +133,6 @@ export function Footer() {
             ))}
           </div>
         </div>
-
-        {/* <div className="mt-12 flex flex-col items-center gap-2 text-center">
-          <NotificationToggle />
-        </div> */}
 
         {/* JAMB disclaimer */}
         <p className="text-brand-300/50 mt-10 text-center text-xs leading-relaxed">

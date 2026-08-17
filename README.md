@@ -35,7 +35,7 @@ Curated, verified resources for Nigerian students: official JAMB/WAEC/NECO/NABTE
 Quiz results share to a public page per stream with a **generated OG image** (`next/og`) — the link preview in WhatsApp shows a branded result card. This is the viral loop: friend sees card → takes quiz → shares card.
 
 ### 7. 📱 PWA — installable & offline
-Installable web app: web app manifest with brand icons (SVG + 192/512 PNGs, apple-touch-icon), iOS install metadata, an install-prompt banner (`beforeinstallprompt` + iOS “Add to Home Screen” hint), and a hand-rolled service worker (`public/sw.js`) that precaches the top pages, caches visited pages for offline use, and serves a branded `/offline.html` fallback. Subscribable **push notifications** (standard Web Push / VAPID) with a ready-to-run sender script.
+Installable web app: web app manifest with brand icons (SVG + 192/512 PNGs, apple-touch-icon), iOS install metadata, an install-prompt banner (`beforeinstallprompt` + iOS “Add to Home Screen” hint), and a hand-rolled service worker (`public/sw.js`) that precaches the top pages, caches visited pages for offline use, and serves a branded `/offline.html` fallback.
 
 ## SEO (big-tech standards)
 
@@ -80,16 +80,12 @@ npm run lint
 - Design tokens live in `src/app/globals.css` (semantic `--color-canvas/surface/ink/line` + brand/accent scales). Dark mode is class-based with a no-FOUC inline script in `root layout`.
 - Site-wide constants (name, URL, description, nav) live in `src/lib/site.ts` — set `NEXT_PUBLIC_SITE_URL` to your production domain.
 
-## PWA & push notifications
+## PWA
 
 - **Service worker** (`public/sw.js`): precaches the offline fallback, manifest, icons and the most useful pages; network-first navigations with cache → `/offline.html` fallback; stale-while-revalidate for hashed `_next` assets. Bump the `-vN` cache keys when shipping big changes — old caches are purged automatically on activate.
 - **Registration** happens only in production (`ServiceWorkerRegister`) to avoid caching dev hot-reload chunks.
 - **Install prompt**: `InstallPrompt` listens for `beforeinstallprompt` (Chrome/Android/Edge) and shows an iOS “Add to Home Screen” hint on Safari.
-- **Push notifications**: visitors opt in via the footer toggle, which subscribes through the Push API and stores the subscription in localStorage (`career-compass-push-subscription`). To send:
-  1. Generate VAPID keys: `npx web-push generate-vapid-keys`
-  2. Put the public key in your deploy env as `NEXT_PUBLIC_VAPID_PUBLIC_KEY` (the site embeds it when users subscribe)
-  3. Export subscriptions from a browser where someone opted in (see `scripts/send-push.mjs`) and run the sender script with `VAPID_PUBLIC_KEY` / `VAPID_PRIVATE_KEY` set
-- For a managed alternative to self-sending, OneSignal or Firebase Cloud Messaging can be swapped in without touching the service worker's push handlers.
+- **Icons**: `public/app-icon-192.png` + `public/app-icon-512.png` (manifest), `public/apple-touch-icon-180.png` (iOS, linked manually from the root layout). If you ever change the icon artwork, **rename the files** too — iOS and Android cache icons aggressively and won't pick up same-URL changes.
 
 ## Data disclaimer
 
@@ -103,7 +99,7 @@ Course requirements are modeled on the JAMB e-Brochure but **must be verified ag
 - [x] Test suite: Vitest (unit + component) & Playwright (E2E)
 - [x] Resource hub with search & categories
 - [x] Dark mode + design-system polish
-- [x] Offline-first PWA (service worker, install prompt, push notifications) for low-data users
+- [x] Offline-first PWA (service worker, install prompt) for low-data users
 - [ ] Full JAMB brochure ingestion (all ~500 courses, per-institution requirements) → Supabase
 - [ ] AI advisor (RAG over the career graph)
 
