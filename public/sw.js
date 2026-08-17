@@ -10,16 +10,16 @@
  * work fully offline. Precached top pages are available offline immediately.
  */
 const CACHE_PREFIX = "career-compass";
-const PRECACHE_CACHE = `${CACHE_PREFIX}-precache-v2`;
-const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v2`;
+const PRECACHE_CACHE = `${CACHE_PREFIX}-precache-v3`;
+const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v3`;
 
 // Offline essentials + the pages students open most (top-ranked careers).
 const PRECACHE_URLS = [
   "/offline.html",
   "/manifest.webmanifest",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/apple-icon.png",
+  "/app-icon-192.png",
+  "/app-icon-512.png",
+  "/apple-touch-icon-180.png",
   "/icon.svg",
   "/",
   "/careers",
@@ -118,37 +118,3 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-// ─── Push notifications ─────────────────────────────────────────────────────
-self.addEventListener("push", (event) => {
-  let data = { title: "Career Compass", body: "New careers and JAMB deadlines are live.", url: "/" };
-  try {
-    if (event.data) data = { ...data, ...event.data.json() };
-  } catch {
-    if (event.data) data.body = event.data.text();
-  }
-  event.waitUntil(
-    self.registration.showNotification(data.title, {
-      body: data.body,
-      icon: "/icon-192.png",
-      badge: "/icon-192.png",
-      data: { url: data.url || "/" },
-    })
-  );
-});
-
-self.addEventListener("notificationclick", (event) => {
-  event.notification.close();
-  const url = event.notification.data?.url || "/";
-  event.waitUntil(
-    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((clients) => {
-      for (const client of clients) {
-        if ("focus" in client) {
-          client.focus();
-          if ("navigate" in client) client.navigate(url);
-          return;
-        }
-      }
-      return self.clients.openWindow(url);
-    })
-  );
-});

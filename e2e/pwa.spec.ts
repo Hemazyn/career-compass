@@ -66,55 +66,6 @@ test.describe("PWA", () => {
     expect(await page.evaluate(() => window.__promptCalled())).toBe(true);
   });
 
-  test("notification toggle subscribes and unsubscribes", async ({ page }) => {
-    await page.addInitScript(() => {
-      type MockSub = {
-        toJSON: () => Record<string, unknown>;
-        unsubscribe: () => Promise<boolean>;
-      };
-      const sub: MockSub = {
-        toJSON: () => ({ endpoint: "https://example.test/push", keys: { p256dh: "a", auth: "b" } }),
-        unsubscribe: async () => true,
-      };
-      let current: MockSub | null = null;
-      Object.defineProperty(window, "Notification", {
-        configurable: true,
-        value: {
-          permission: "default",
-          requestPermission: async () => {
-            current = sub;
-            return "granted";
-          },
-        },
-      });
-      Object.defineProperty(navigator, "serviceWorker", {
-        configurable: true,
-        value: {
-          ready: Promise.resolve({
-            pushManager: {
-              getSubscription: async () => current,
-              subscribe: async () => {
-                current = sub;
-                return sub;
-              },
-            },
-          }),
-        },
-      });
-    });
-
-    await page.goto("/");
-    await page.getByRole("button", { name: /Get notified about new careers/i }).click();
-    await expect(page.getByRole("button", { name: /Notifications on/i })).toBeVisible();
-    const stored = await page.evaluate(() =>
-      localStorage.getItem("career-compass-push-subscription")
-    );
-    expect(stored).toContain("example.test/push");
-
-    await page.getByRole("button", { name: /Notifications on/i }).click();
-    await expect(page.getByRole("button", { name: /Get notified about new careers/i })).toBeVisible();
-  });
-
   test("falls back to the offline page when the network is unavailable", async ({ page, context }) => {
     test.setTimeout(60_000); // dev-server page compilation can be slow
     // Registration is production-only in the app, so register manually here to test the worker.

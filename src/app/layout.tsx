@@ -67,6 +67,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Legacy iOS install meta — Next.js emits the modern mobile-web-app-capable variant */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        {/* iOS home-screen icon (manual link so the filename can be versioned to bust caches) */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}>
         <ThemeScript />
